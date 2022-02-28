@@ -1,0 +1,35 @@
+html {
+  font-size: 100%;
+}
+
+:focus {
+  outline: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before, *::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, button {
+  font-size: 1rem;
+}
+
+img {
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=index.css.map */
