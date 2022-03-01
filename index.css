@@ -16,6 +16,11 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.125rem;
+}
+
 a {
   text-decoration: none;
 }

@@ -1,0 +1,33 @@
+@mixin media($width) {
+	@media (min-width: map-get($break-point, $width)) {
+		@content;
+	}
+} 
+
+//----------- flex ------------
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+@mixin flex-di($direction: row) {
+	@if $direction == column {
+		flex-direction: column;
+	} @else {
+		flex-direction: $direction;
+	}
+}
+
+//----------- grid ------------
+@mixin grid($grid, $gap: false, $size-gap: 0px) {
+	display: $grid;
+
+	@if not $gap {
+		grid-gap: $size-gap;
+	}
+}
