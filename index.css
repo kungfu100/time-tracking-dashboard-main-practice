@@ -18,15 +18,39 @@ html {
 
 body {
   font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  line-height: 1;
+}
+
+h2 {
+  font-weight: 400;
+  color: white;
+}
+
+h3 {
   font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 11px;
+  color: white;
+}
+
+p {
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 a {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 a, button {
-  font-size: 1rem;
+  font-size: 1.125rem;
+  cursor: pointer;
 }
 
 img {
@@ -35,6 +59,133 @@ img {
 
 ul {
   list-style-type: none;
+}
+
+.main {
+  margin: 0 auto;
+  max-width: 1440px;
+  background-color: #0f1424;
+}
+
+.container {
+  max-width: 100%;
+  padding: 5em 1.5em;
+}
+.container--grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.container--grid > div:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+.text-white {
+  color: white;
+}
+.text-white-light-50 {
+  color: rgba(255, 255, 255, 0.5);
+}
+.text-white-light-70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+.text-al-right {
+  text-align: right;
+}
+
+h2, .text-fs-24 {
+  font-size: 1.5rem;
+}
+
+.top, .bottom {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+}
+
+.top {
+  position: relative;
+}
+.top--height {
+  min-height: 2.4375em;
+}
+.top__svg {
+  position: absolute;
+  right: 18px;
+}
+
+.bottom {
+  position: relative;
+  z-index: 9999;
+  background-color: #1c1f4a;
+}
+.bottom--padding {
+  padding-top: 1.75em;
+  padding-bottom: 2.125em;
+}
+
+.flex-jc-se {
+  justify-content: space-evenly;
+}
+
+.border-r {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.border-r-b {
+  border-radius: 0 0 20px 20px;
+}
+.border-r-t {
+  border-radius: 20px 20px 0 0;
+}
+
+.bg-red-l {
+  background-color: #ff8c66;
+}
+.bg-red-l-68 {
+  background-color: #ff5c7c;
+}
+.bg-blue-s {
+  background-color: #56c2e6;
+}
+.bg-green-lm {
+  background-color: #4acf81;
+}
+.bg-violet {
+  background-color: #7536d3;
+}
+.bg-orange-s {
+  background-color: #f1c65b;
+}
+
+.report {
+  background-color: #1c1f4a;
+}
+.report__top {
+  padding: 2em 0;
+}
+.report__top--blue {
+  background-color: #5847eb;
+}
+.report__top-img {
+  width: 4.5625em;
+  min-height: 4.375em;
+}
+.report__bottom {
+  padding: 1.625em;
+}
+.report__img {
+  width: 100%;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+.report__btn:hover, .report__btn:focus {
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */

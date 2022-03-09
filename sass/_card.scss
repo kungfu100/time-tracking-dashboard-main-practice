@@ -1,0 +1,137 @@
+.top, .bottom {
+	@include flex;
+
+	justify-content: space-between;
+	align-items: center;
+
+	padding:0 1.5em;
+}
+
+.top {
+	position:relative;
+
+	&--height {
+		min-height: 2.4375em; //39px
+	}
+
+	&__svg {
+		position: absolute;
+		right: 18px;
+	}
+}
+
+.bottom {
+	position:relative;
+	z-index: 9999;
+
+	background-color:$dark-blue-20;
+
+	&--padding {
+		padding-top:1.75em; 
+		padding-bottom:2.125em;
+	}
+}
+
+.flex-jc-se {
+	justify-content: space-evenly;
+}
+
+.border {
+
+	&-r {
+
+		border-radius:20px;
+		overflow: hidden;
+
+		&-b {
+			border-radius: 0 0 20px 20px;
+		}
+
+		&-t {
+			border-radius: 20px 20px 0 0;
+		}
+	}
+}
+
+//-----------COLOR CARDS-------------
+.bg {
+
+	//-------------red
+	&-red {
+
+		&-l {
+			background-color:$light-red;
+		}
+
+		&-l-68 {
+			background-color:$light-red-68;
+		}
+	}
+
+	//------------blue
+	&-blue {
+
+		&-s {
+			background-color:$soft-blue;
+		}
+	}
+
+	//------------green
+	&-green {
+
+		&-lm {
+			background-color:$lime-green;
+		}
+	}
+
+	//------------violet
+	&-violet {
+		background-color:$violet;
+	}
+
+	//------------orange
+	&-orange {
+
+		&-s {
+			background-color:$soft-orange;
+		}
+	}
+}
+
+//----------------------------------
+.report {
+	background-color: $dark-blue-20;
+
+	&__top {
+		padding:2em 0; //32px
+
+		&--blue {
+			background-color: $blue;
+		}
+
+		&-img {
+			width:4.5625em; //73px
+			min-height:4.375em ; //70px
+		}
+	}
+
+	&__bottom {
+		padding:1.625em; //26px
+	}
+
+	&__img {
+		width: 100%;
+
+		border:3px solid $white;
+		border-radius:50%;
+	}
+
+	&__btn {
+
+		&:hover, &:focus {
+			color:$white
+		}
+	}
+}
+
+

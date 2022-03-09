@@ -24,7 +24,7 @@
 }
 
 //----------- grid ------------
-@mixin grid($grid, $gap: false, $size-gap: 0px) {
+@mixin grid($grid, $gap, $size-gap: 0px) {
 	display: $grid;
 
 	@if not $gap {

@@ -18,15 +18,45 @@ html {
 
 body {
 	font-family: $fm;
-	font-size: $fs;
+	font-weight:map-get($fw, normal) ;
+
+	line-height:1;
+}
+
+h2 {
+	@extend %fs24;	
+
+	font-weight: map-get($fw, medium);
+
+	color:$white;
+}
+
+h3 {
+	font-size:$fs;
+	font-weight: map-get($fw, bold);
+
+	margin-bottom:11px;
+
+	color:$white;
+}
+
+p {
+	margin-top: 7px;
+	margin-bottom: 7px;
 }
 
 a {
 	text-decoration:none;
 }
 
+button {
+	border:none;
+	background-color:transparent;
+}
+
 a, button {
-	font-size:1rem;
+	font-size: $fs;
+	cursor:pointer;
 }
 
 img {
@@ -35,4 +65,60 @@ img {
 
 ul {
 	list-style-type: none;
+}
+
+//----------------------------
+
+.main {
+	margin:0 auto;
+	max-width: map-get($break-point, desktop);
+
+	background-color:$dark-blue-10;
+}
+
+.container {
+	max-width:100%;
+	padding:5em 1.5em;
+
+	&--grid {
+		@include grid(grid, true);
+
+		grid-template-columns: 1fr;
+
+		& > div:not(:last-child) {
+			margin-bottom: 1.5em;
+		}
+	}
+}
+
+//-----------------------------
+.text {
+
+	&-white{
+		color:$white;
+
+		&-light {
+
+			&-50 {
+				color:$white-light-50;
+			}
+
+			&-70 {
+				color:$white-light-70;
+			}
+		}
+	}
+
+	&-fs-24 {
+		@extend %fs24;
+	} 
+
+	&-al-right {
+		text-align: right;
+	}
+}
+
+//------------------
+%fs24 {
+	font-size:1.5rem;
 }

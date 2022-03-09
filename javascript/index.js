@@ -2,6 +2,14 @@
 
 //import data from "/data.json" assert {type:"json"};
 
+let keyTime = "daily";
+
+window.addEventListener("load", () => {
+	const btnReport = document.getElementsByClassName("report__btn");
+
+	btnReport[0].focus();
+})
+
 async function checkData() {
 	let list = [];
 	const urlData = "/data.json";
@@ -14,8 +22,8 @@ async function checkData() {
 		console.log(error);
 	}
 
-	dataIntoHtml(list);
-	
+	const test = dataIntoHtml(list);
+	test();
 }
 
 checkData();
@@ -30,7 +38,7 @@ function dataIntoHtml(list) {
 	}*/
 	
 	list.map((item, index) => {
-		let keyTime = "daily";
+		//let keyTime = "daily";
 
 		const {title, timeframes} = item;
 		//const {daily} = timeframes;
@@ -40,17 +48,61 @@ function dataIntoHtml(list) {
 		bottomCurrent[index].textContent = `${current}hrs`;
 		bottomLast[index].textContent = `Yesterday ${previous}hrs`;
 	})
+
+	return () => {
+		const btnTime = document.getElementsByClassName("btn-time");
+
+		for(let btn = 0; btn < btnTime.length; btn++) {
+			btnTime[btn].addEventListener("click", changeData);
+		}
+
+		function changeData(event) {
+			//console.log(btnTime[btn].textContent.toLowerCase())
+			//text = btnTime[btn].textContent.toLowerCase();		
+			//console.log(text);
+
+			let text = event.target.textContent.toLowerCase();
+
+			keyTime = text;
+
+			// test ------------>>>
+			list.map((item, index) => {
+				//let keyTime = "daily";
+
+				const {title, timeframes} = item;
+				//const {daily} = timeframes;
+				const {current, previous} = timeframes[keyTime];
+
+				bottomTitle[index].textContent = title;
+				bottomCurrent[index].textContent = `${current}hrs`;
+				bottomLast[index].textContent = `Yesterday ${previous}hrs`;
+			})
+			//------------------------
+
+			console.log(keyTime);
+		}
+	};
 }
 
+/* --------------------------
 function buttonChange() {
 	const btnTime = document.getElementsByClassName("btn-time");
-	
+
 	for(let btn = 0; btn < btnTime.length; btn++) {
-		btnTime[btn].addEventListener("click", () => console.log(btnTime[btn].textContent.toLowerCase()));
+		btnTime[btn].addEventListener("click", changeData);
 	}
 }
 
-buttonChange();
+function changeData(event) {
+	//console.log(btnTime[btn].textContent.toLowerCase())
+	//text = btnTime[btn].textContent.toLowerCase();		
+	//console.log(text);
+
+	let text = event.target.textContent.toLowerCase();
+
+	keyTime = text;
+}
+------------------------------*/
 
 //tạo key giống như 1 biến
 //khi click button lấy key để đưa vào timeframes[key]
