@@ -1,12 +1,8 @@
 .top, .bottom {
-	@include flex;
-
-	justify-content: space-between;
-	align-items: center;
-
 	padding:0 1.5em;
 }
 
+//-------- TOP -----------
 .top {
 	position:relative;
 
@@ -17,9 +13,11 @@
 	&__svg {
 		position: absolute;
 		right: 18px;
+		top:-7px;
 	}
 }
 
+//-------- BOTTOM -----------
 .bottom {
 	position:relative;
 	z-index: 9999;
@@ -30,12 +28,39 @@
 		padding-top:1.75em; 
 		padding-bottom:2.125em;
 	}
+
+	&:hover {
+		background-color:$desaturated-blue;
+	}
 }
 
-.flex-jc-se {
-	justify-content: space-evenly;
+//-------- FLEX ------------------
+.flex {
+
+	@include flex;
+
+	&-jc {
+
+		&-se {
+			justify-content: space-evenly;
+		}
+
+		&-sb {
+			justify-content: space-between;
+		}
+	}
+
 }
 
+//-------- BUTTON TIME ------------
+.btn-time {
+
+	&:hover, &:focus {
+		color:$white
+	}
+}
+
+//---------- BORDER ---------------
 .border {
 
 	&-r {
@@ -99,10 +124,18 @@
 }
 
 //----------------------------------
+//				REPORT
+//----------------------------------
 .report {
-	background-color: $dark-blue-20;
+	grid-area:report;
+
+	&--dart-blue {
+		background-color: $dark-blue-20;
+	}
 
 	&__top {
+		align-items: center;
+
 		padding:2em 0; //32px
 
 		&--blue {
@@ -110,13 +143,20 @@
 		}
 
 		&-img {
-			width:4.5625em; //73px
-			min-height:4.375em ; //70px
+			width: calc(4em + 3vw); //73px
+			min-height: calc(4em + 2.8vw) ; //70px
 		}
 	}
 
 	&__bottom {
 		padding:1.625em; //26px
+
+		justify-content: space-between;
+		align-items: center;
+
+		&:hover {
+			background-color: $dark-blue-20;
+		}
 	}
 
 	&__img {
@@ -125,13 +165,29 @@
 		border:3px solid $white;
 		border-radius:50%;
 	}
-
-	&__btn {
-
-		&:hover, &:focus {
-			color:$white
-		}
-	}
 }
 
+.work {
+	grid-area:work;
+}
+
+.play {
+	grid-area:play;
+}
+
+.study {
+	grid-area:study;
+}
+
+.exercise {
+	grid-area:exercise;
+}
+
+.social {
+	grid-area:social;
+}
+
+.self {
+	grid-area:self;
+}
 

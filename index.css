@@ -24,6 +24,8 @@ body {
 
 h2 {
   font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1.3;
   color: white;
 }
 
@@ -63,7 +65,6 @@ ul {
 
 .main {
   margin: 0 auto;
-  max-width: 1440px;
   background-color: #0f1424;
 }
 
@@ -73,10 +74,8 @@ ul {
 }
 .container--grid {
   display: grid;
-  grid-template-columns: 1fr;
-}
-.container--grid > div:not(:last-child) {
-  margin-bottom: 1.5em;
+  grid-template-areas: 'report' 'work' 'play' 'study' 'exercise' 'social' 'self';
+  grid-row-gap: 1.5em;
 }
 
 .text-white {
@@ -97,14 +96,6 @@ h2, .text-fs-24 {
 }
 
 .top, .bottom {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
   padding: 0 1.5em;
 }
 
@@ -117,6 +108,7 @@ h2, .text-fs-24 {
 .top__svg {
   position: absolute;
   right: 18px;
+  top: -7px;
 }
 
 .bottom {
@@ -128,9 +120,27 @@ h2, .text-fs-24 {
   padding-top: 1.75em;
   padding-bottom: 2.125em;
 }
+.bottom:hover {
+  background-color: #6f76c8;
+}
 
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
 .flex-jc-se {
   justify-content: space-evenly;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+
+.btn-time:hover, .btn-time:focus {
+  color: white;
 }
 
 .border-r {
@@ -164,28 +174,94 @@ h2, .text-fs-24 {
 }
 
 .report {
+  grid-area: report;
+}
+.report--dart-blue {
   background-color: #1c1f4a;
 }
 .report__top {
+  align-items: center;
   padding: 2em 0;
 }
 .report__top--blue {
   background-color: #5847eb;
 }
 .report__top-img {
-  width: 4.5625em;
-  min-height: 4.375em;
+  width: calc(4em + 3vw);
+  min-height: calc(4em + 2.8vw);
 }
 .report__bottom {
   padding: 1.625em;
+  justify-content: space-between;
+  align-items: center;
+}
+.report__bottom:hover {
+  background-color: #1c1f4a;
 }
 .report__img {
   width: 100%;
   border: 3px solid white;
   border-radius: 50%;
 }
-.report__btn:hover, .report__btn:focus {
-  color: white;
+
+.work {
+  grid-area: work;
+}
+
+.play {
+  grid-area: play;
+}
+
+.study {
+  grid-area: study;
+}
+
+.exercise {
+  grid-area: exercise;
+}
+
+.social {
+  grid-area: social;
+}
+
+.self {
+  grid-area: self;
+}
+
+@media (min-width: 768px) {
+  .flex-cl {
+    flex-direction: column;
+  }
+  .flex-als-fs {
+    align-self: flex-start;
+  }
+
+  .container {
+    padding: 15.8125em calc(3.125em + 5vw) 15.375em calc(3.125em + 7vw);
+  }
+  .container--grid {
+    grid-template-areas: 'report work play' 'report study exercise' '. social self';
+    grid-gap: 1.5em;
+  }
+
+  .report__top {
+    padding: 2.125em 0 3em 1.875em;
+    align-items: flex-start;
+  }
+  .report__top-img {
+    margin-bottom: 2.6875em;
+  }
+  .report__bottom {
+    align-items: flex-start;
+  }
+  .report__bottom > button:not(:last-child) {
+    margin-bottom: 1.375rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container--grid {
+    grid-template-areas: 'report work play study' 'report exercise social self';
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

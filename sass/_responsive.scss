@@ -1,0 +1,62 @@
+@include media(tablet) {
+	.flex {
+
+		&-cl {
+			@include flex-di(column);
+		}
+
+		&-als-fs {
+			align-self: flex-start;
+		}
+	}
+
+	.container {
+		padding: 
+			15.8125em
+			calc(3.125em + 5vw)
+			15.375em
+			calc(3.125em + 7vw);
+
+		&--grid {
+			grid-template-areas: 
+			'report work play'
+			'report study exercise'
+			'. social self';
+
+			grid-gap:1.5em;
+		}
+
+	}
+
+	.report {
+
+		&__top {
+			padding: 2.125em 0 3em 1.875em;
+			align-items: flex-start;
+
+			&-img {
+				margin-bottom: 2.6875em;
+			}
+		}
+
+		&__bottom {
+			align-items: flex-start;
+
+			& > button:not(:last-child) {
+				margin-bottom: 1.375rem;
+			}
+		}
+	}
+}
+
+//----------------------------
+@include media(desktop) {
+	.container {
+
+		&--grid {
+			grid-template-areas: 
+			'report work play study'
+			'report exercise social self';
+		}
+	}
+}

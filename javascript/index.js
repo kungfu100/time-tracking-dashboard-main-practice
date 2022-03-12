@@ -5,11 +5,12 @@
 let keyTime = "daily";
 
 window.addEventListener("load", () => {
-	const btnReport = document.getElementsByClassName("report__btn");
+	const btnTime = document.getElementsByClassName("btn-time");
 
-	btnReport[0].focus();
+	btnTime[0].focus();
 })
 
+//---------------------------------------
 async function checkData() {
 	let list = [];
 	const urlData = "/data.json";
@@ -46,7 +47,7 @@ function dataIntoHtml(list) {
 
 		bottomTitle[index].textContent = title;
 		bottomCurrent[index].textContent = `${current}hrs`;
-		bottomLast[index].textContent = `Yesterday ${previous}hrs`;
+		bottomLast[index].textContent = `Yesterday - ${previous}hrs`;
 	})
 
 	return () => {
@@ -67,15 +68,27 @@ function dataIntoHtml(list) {
 
 			// test ------------>>>
 			list.map((item, index) => {
-				//let keyTime = "daily";
-
 				const {title, timeframes} = item;
 				//const {daily} = timeframes;
 				const {current, previous} = timeframes[keyTime];
 
 				bottomTitle[index].textContent = title;
 				bottomCurrent[index].textContent = `${current}hrs`;
-				bottomLast[index].textContent = `Yesterday ${previous}hrs`;
+
+				//--------switch
+				switch (keyTime) {
+					case "daily":
+						bottomLast[index].textContent = `Yesterday - ${previous}hrs`;
+						break;
+					case "weekly": 
+						bottomLast[index].textContent = `Last Week - ${previous}hrs`;
+						break;
+					case "monthly":
+						bottomLast[index].textContent = `Last Month - ${previous}hrs`;
+						break;
+					default: 
+						console.log("error !!!");
+				}
 			})
 			//------------------------
 
@@ -84,8 +97,8 @@ function dataIntoHtml(list) {
 	};
 }
 
-/* --------------------------
-function buttonChange() {
+//-------------------------------------kiểm tra lại phần này
+/*function buttonChange() {
 	const btnTime = document.getElementsByClassName("btn-time");
 
 	for(let btn = 0; btn < btnTime.length; btn++) {
@@ -101,8 +114,8 @@ function changeData(event) {
 	let text = event.target.textContent.toLowerCase();
 
 	keyTime = text;
-}
-------------------------------*/
+}*/
+
 
 //tạo key giống như 1 biến
 //khi click button lấy key để đưa vào timeframes[key]

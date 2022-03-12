@@ -41,5 +41,5 @@ $fw: ("normal": 300, "medium": 400, "bold": 500);
 $fs: 1.125rem;
 
 //media
-$break-point: ("mobile": 375px, "desktop": 1440px);
+$break-point: ("mobile": 375px, "tablet": 768px, "desktop": 1024px, "large desktop": 1440px);
 
