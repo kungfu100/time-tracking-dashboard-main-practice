@@ -10,7 +10,69 @@ window.addEventListener("load", () => {
 	btnTime[0].focus();
 })
 
+function listMap(list, keyTime) {
+	const _title = document.getElementsByClassName("bottom__title");
+	const _current = document.getElementsByClassName("bottom__current");
+	const last = document.getElementsByClassName("bottom__last");
+
+	list.map((item, index) => {
+
+		const {title, timeframes} = item;
+		const {current, previous} = timeframes[keyTime];
+
+		_title[index].textContent = title;
+		_current[index].textContent = `${current}hrs`;
+
+		//----------- SWITCH -----------
+		switch (keyTime) {
+			case "daily":
+				last[index].textContent = `Yesterday - ${previous}hrs`;
+				break;
+			case "weekly": 
+				last[index].textContent = `Last Week - ${previous}hrs`;
+				break;
+			case "monthly":
+				last[index].textContent = `Last Month - ${previous}hrs`;
+				break;
+			default: 
+				console.log("error !!!");
+		}
+	})
+}
+
+async function getList() {
+	let list = [];
+	const urlData = "/data.json";
+
+	try {
+		let data = await fetch(urlData);
+		list = await data.json();
+
+	} catch(error) {
+		console.log(error);
+	}
+
+	listMap(list, keyTime); //run default for keyTime = "daily"
+	getKeyTimeToHTML(list); //when click button to change keyTime
+}
+
+function getKeyTimeToHTML(list) {
+	const btnTime = document.getElementsByClassName("btn-time");
+
+	for(let btn = 0; btn < btnTime.length; btn++) {
+		btnTime[btn].addEventListener("click", (event) => {
+			keyTime = event.target.textContent.toLowerCase();
+			
+			listMap(list, keyTime);
+		});
+	}
+
+}
+
+getList();
+
 //---------------------------------------
+/*
 async function checkData() {
 	let list = [];
 	const urlData = "/data.json";
@@ -34,9 +96,9 @@ function dataIntoHtml(list) {
 	const bottomCurrent = document.getElementsByClassName("bottom__current");
 	const bottomLast = document.getElementsByClassName("bottom__last");
 
-	/*for(let i = 0; i < list.length; i++) {
-		console.log(bottomTitle[i].textContent = list[i].title);
-	}*/
+	//for(let i = 0; i < list.length; i++) {
+	//	console.log(bottomTitle[i].textContent = list[i].title);
+	//}
 	
 	list.map((item, index) => {
 		//let keyTime = "daily";
@@ -96,6 +158,7 @@ function dataIntoHtml(list) {
 		}
 	};
 }
+*/
 
 //-------------------------------------kiểm tra lại phần này
 /*function buttonChange() {

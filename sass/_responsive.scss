@@ -4,10 +4,6 @@
 		&-cl {
 			@include flex-di(column);
 		}
-
-		&-als-fs {
-			align-self: flex-start;
-		}
 	}
 
 	.container {
@@ -21,9 +17,13 @@
 			grid-template-areas: 
 			'report work play'
 			'report study exercise'
-			'. social self';
+			'report social self';
 
-			grid-gap:1.5em;
+			grid-gap:1em;
+
+			& > div {
+				margin-bottom: 0 !important;
+			}
 		}
 
 	}

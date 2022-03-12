@@ -75,7 +75,9 @@ ul {
 .container--grid {
   display: grid;
   grid-template-areas: 'report' 'work' 'play' 'study' 'exercise' 'social' 'self';
-  grid-row-gap: 1.5em;
+}
+.container--grid > div:not(:last-child) {
+  margin-bottom: 1.5em;
 }
 
 .text-white {
@@ -232,16 +234,16 @@ h2, .text-fs-24 {
   .flex-cl {
     flex-direction: column;
   }
-  .flex-als-fs {
-    align-self: flex-start;
-  }
 
   .container {
     padding: 15.8125em calc(3.125em + 5vw) 15.375em calc(3.125em + 7vw);
   }
   .container--grid {
-    grid-template-areas: 'report work play' 'report study exercise' '. social self';
-    grid-gap: 1.5em;
+    grid-template-areas: 'report work play' 'report study exercise' 'report social self';
+    grid-gap: 1em;
+  }
+  .container--grid > div {
+    margin-bottom: 0 !important;
   }
 
   .report__top {
