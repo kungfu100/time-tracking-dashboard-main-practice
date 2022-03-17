@@ -117,6 +117,7 @@ h2, .text-fs-24 {
   position: relative;
   z-index: 9999;
   background-color: #1c1f4a;
+  transition: background-color ease-in 0.25s;
 }
 .bottom--padding {
   padding-top: 1.75em;
@@ -141,6 +142,9 @@ h2, .text-fs-24 {
   justify-content: space-between;
 }
 
+.btn-time {
+  transition: color ease-in-out 0.5s;
+}
 .btn-time:hover, .btn-time:focus {
   color: white;
 }
@@ -247,7 +251,7 @@ h2, .text-fs-24 {
   }
 
   .report__top {
-    padding: 2.125em 0 3em 1.875em;
+    padding: 2.125em 0.5em 3em 1.875em;
     align-items: flex-start;
   }
   .report__top-img {

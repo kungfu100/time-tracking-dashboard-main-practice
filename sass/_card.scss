@@ -24,6 +24,8 @@
 
 	background-color:$dark-blue-20;
 
+	transition: background-color ease-in 0.25s;
+
 	&--padding {
 		padding-top:1.75em; 
 		padding-bottom:2.125em;
@@ -54,6 +56,7 @@
 
 //-------- BUTTON TIME ------------
 .btn-time {
+	transition: color ease-in-out 0.5s;
 
 	&:hover, &:focus {
 		color:$white
